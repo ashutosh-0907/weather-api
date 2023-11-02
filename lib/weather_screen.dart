@@ -50,15 +50,10 @@ class WeatherScreen extends StatelessWidget {
                               size: 64,
                             ),
                           ),
-                          Padding(
-                            padding: EdgeInsets.all(8.0),
-                            child: Center(
-                              child: Text(
-                                'Rain',
-                                style: TextStyle(
-                                  fontSize: 32,
-                                ),
-                              ),
+                          Text(
+                            'Rain',
+                            style: TextStyle(
+                              fontSize: 32,
                             ),
                           ),
                         ],
@@ -77,42 +72,89 @@ class WeatherScreen extends StatelessWidget {
                 fontWeight: FontWeight.bold,
                 fontSize: 32,
               ),
-              ),
-              Card(
-                child: Row(
-                  children: [
-                    Card(
-                      child: Column(
-                        children: [
-                          Center(
+            ),
+            const Row(
+              children: [
+                Card(
+                  elevation: 10,
+                  child: Column(
+                    children: [
+                      Center(
+                        child: Padding(
+                          padding: EdgeInsets.all(8.0),
+                          child: Text(
+                            '09:00',
+                            style: TextStyle(
+                              fontSize: 20,
+                            ),
+                          ),
+                        ),
+                      ),
+                      Padding(
+                        padding: EdgeInsets.all(8.0),
+                        child: Icon(
+                          Icons.cloud,
+                          size: 40,
+                        ),
+                      ),
+                      Padding(
+                        padding: EdgeInsets.all(8.0),
+                        child: Text(
+                          '301.17',
+                          style: TextStyle(
+                            fontSize: 20,
+                          ),
+                        ),
+                      ),
+                    ],
+                  ),
+                )
+              ],
+            ),
+            const Row(
+              children: [
+                SizedBox(
+                  width: 100,
+                  child: Card(
+                    elevation: 10,
+                    child: Column(
+                      children: [
+                        Center(
+                          child: Padding(
+                            padding: EdgeInsets.all(8.0),
                             child: Text(
                               '09:00',
+                              style: TextStyle(
+                                fontSize: 20,
                               ),
-                          ),
-                          Icon(
-                              Icons.cloud,
-                              size: 64,
                             ),
-                            Text(
-                              '09:00',
-                              ),
-                          
-                        ],
-                      ),
-                    )
-                  ],
-                ),
-              )
+                          ),
+                        ),
+                        Padding(
+                          padding: EdgeInsets.all(8.0),
+                          child: Icon(
+                            Icons.cloud,
+                            size: 40,
+                          ),
+                        ),
+                        Padding(
+                          padding: EdgeInsets.all(8.0),
+                          child: Text(
+                            '301.17',
+                            style: TextStyle(
+                              fontSize: 20,
+                            ),
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
+                )
+              ],
+            )
           ],
         ),
       ),
     );
   }
 }
-
-
-
-
-
-    
-            
