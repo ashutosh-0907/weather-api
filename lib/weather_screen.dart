@@ -1,5 +1,5 @@
 import 'dart:ui';
-
+import 'card_widget.dart';
 import 'package:flutter/material.dart';
 
 class WeatherScreen extends StatelessWidget {
@@ -75,86 +75,35 @@ class WeatherScreen extends StatelessWidget {
             ),
             const Row(
               children: [
-                Card(
-                  elevation: 10,
-                  child: Column(
-                    children: [
-                      Center(
-                        child: Padding(
-                          padding: EdgeInsets.all(8.0),
-                          child: Text(
-                            '09:00',
-                            style: TextStyle(
-                              fontSize: 20,
-                            ),
-                          ),
-                        ),
-                      ),
-                      Padding(
-                        padding: EdgeInsets.all(8.0),
-                        child: Icon(
-                          Icons.cloud,
-                          size: 40,
-                        ),
-                      ),
-                      Padding(
-                        padding: EdgeInsets.all(8.0),
-                        child: Text(
-                          '301.17',
-                          style: TextStyle(
-                            fontSize: 20,
-                          ),
-                        ),
-                      ),
-                    ],
-                  ),
-                )
-              ],
-            ),
-            const Row(
-              children: [
                 SizedBox(
                   width: 100,
-                  child: Card(
-                    elevation: 10,
-                    child: Column(
-                      children: [
-                        Center(
-                          child: Padding(
-                            padding: EdgeInsets.all(8.0),
-                            child: Text(
-                              '09:00',
-                              style: TextStyle(
-                                fontSize: 20,
-                              ),
-                            ),
-                          ),
-                        ),
-                        Padding(
-                          padding: EdgeInsets.all(8.0),
-                          child: Icon(
-                            Icons.cloud,
-                            size: 40,
-                          ),
-                        ),
-                        Padding(
-                          padding: EdgeInsets.all(8.0),
-                          child: Text(
-                            '301.17',
-                            style: TextStyle(
-                              fontSize: 20,
-                            ),
-                          ),
-                        ),
-                      ],
+                  child: CardWidget(),
+                ),
+                Row(
+                  children: [
+                    SizedBox(
+                      width: 10,
                     ),
-                  ),
-                )
+                    SizedBox(
+                      width: 100,
+                      child: CardWidget(),
+                    ),
+                    SizedBox(
+                      width: 10,
+                    ),
+                    SizedBox(width: 100, child: CardWidget()),
+                    SizedBox(
+                      width: 10,
+                    ),
+                    SizedBox(width: 100, child: CardWidget()),
+                  ],
+                ),
               ],
-            )
+            ),
           ],
         ),
       ),
     );
   }
 }
+
