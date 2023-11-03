@@ -11,7 +11,7 @@ class CardWidget extends StatelessWidget {
       shape: RoundedRectangleBorder(
         borderRadius: BorderRadius.circular(16),
       ),
-      elevation: 10,
+      elevation: 5,
       child: const Column(
         children: [
           Center(

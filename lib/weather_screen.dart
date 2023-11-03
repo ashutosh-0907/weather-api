@@ -1,4 +1,6 @@
 import 'dart:ui';
+import 'package:weather_api/additinl_info.dart';
+
 import 'card_widget.dart';
 import 'package:flutter/material.dart';
 
@@ -78,7 +80,7 @@ class WeatherScreen extends StatelessWidget {
               child: Row(
                 children: [
                   SizedBox(
-                    width: 100,
+                    width: 110,
                     child: CardWidget(),
                   ),
                   Row(
@@ -87,17 +89,17 @@ class WeatherScreen extends StatelessWidget {
                         width: 10,
                       ),
                       SizedBox(
-                        width: 100,
+                        width: 110,
                         child: CardWidget(),
                       ),
                       SizedBox(
                         width: 8,
                       ),
-                      SizedBox(width: 100, child: CardWidget()),
+                      SizedBox(width: 110, child: CardWidget()),
                       SizedBox(
                         width: 10,
                       ),
-                      SizedBox(width: 100, child: CardWidget()),
+                      SizedBox(width: 110, child: CardWidget()),
                     ],
                   ),
                 ],
@@ -142,40 +144,18 @@ class WeatherScreen extends StatelessWidget {
                   ),
                    Padding(
                     padding:  EdgeInsets.all(8.0),
-                    child: Column(
-                      children: [
-                        Icon(
-                          Icons.water_drop,
-                          size: 40,
-                          ),
-                        Padding(
-                          padding:  EdgeInsets.all(8.0),
-                          child: Text(
-                            'Wind Speed',
-                            style: TextStyle(
-                              fontSize: 20,
-                            ),
-                          ),                      
-                        ),
-                        Text(
-                            '7.67',
-                            style: TextStyle(
-                              fontSize: 20,
-                            ),
-                          ),
-                      ],
-                    ),
+                    child: AdditionalInfo()
                   ),
                    Padding(
-                    padding:  EdgeInsets.only(right: 8),
+                    padding:  EdgeInsets.only(right: 10),
                     child: Column(
                       children: [
                         Icon(
-                          Icons.water_drop,
+                          Icons.beach_access,
                           size: 40,
                           ),
                         Padding(
-                          padding:  EdgeInsets.all(8.0),
+                          padding:  EdgeInsets.all(10.0),
                           child: Text(
                             'Pressure',
                             style: TextStyle(
@@ -201,3 +181,5 @@ class WeatherScreen extends StatelessWidget {
     );
   }
 }
+
+
