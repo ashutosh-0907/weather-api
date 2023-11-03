@@ -115,65 +115,25 @@ class WeatherScreen extends StatelessWidget {
                 fontSize: 32,
               ),
             ),
-            const Padding(
-              padding:  EdgeInsets.all(8.0),
-              child: Row(
-                children: [
-                  Column(
-                    children: [
-                      Icon(
-                        Icons.water_drop,
-                        size: 40,
-                        ),
-                      Padding(
-                        padding:  EdgeInsets.all(8.0),
-                        child: Text(
-                          'Humidity',
-                          style: TextStyle(
-                            fontSize: 20,
-                          ),
-                        ),                      
-                      ),
-                      Text(
-                          '94',
-                          style: TextStyle(
-                            fontSize: 20,
-                          ),
-                        ),
-                    ],
-                  ),
-                   Padding(
-                    padding:  EdgeInsets.all(8.0),
-                    child: AdditionalInfo()
-                  ),
-                   Padding(
-                    padding:  EdgeInsets.only(right: 10),
-                    child: Column(
-                      children: [
-                        Icon(
-                          Icons.beach_access,
-                          size: 40,
-                          ),
-                        Padding(
-                          padding:  EdgeInsets.all(10.0),
-                          child: Text(
-                            'Pressure',
-                            style: TextStyle(
-                              fontSize: 20,
-                            ),
-                          ),                      
-                        ),
-                        Text(
-                            '1006',
-                            style: TextStyle(
-                              fontSize: 20,
-                            ),
-                          ),
-                      ],
-                    ),
-                  ),
-                ],
-              ),
+             const Row(
+              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+              children: [
+                  AdditionalInfo(
+                  icon: Icons.water_drop,
+                  label: 'Humidity',
+                  value: '94',
+                 ),
+                 AdditionalInfo(
+                  icon: Icons.air,
+                  label: 'Wind Speed',
+                 value: '7.67',
+                 ),
+                 AdditionalInfo(
+                  icon: Icons.beach_access,
+                  label: 'Pressure',
+                  value: '1006',
+                 ),
+              ],
             )
           ],
         ),
