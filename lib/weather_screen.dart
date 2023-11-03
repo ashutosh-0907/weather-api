@@ -81,7 +81,11 @@ class WeatherScreen extends StatelessWidget {
                 children: [
                   SizedBox(
                     width: 110,
-                    child: CardWidget(),
+                    child: CardWidget(
+                      label: '09:00',
+                        icon: Icons.cloud,                
+                        value: '301.17',
+                    ),
                   ),
                   Row(
                     children: [
@@ -90,16 +94,28 @@ class WeatherScreen extends StatelessWidget {
                       ),
                       SizedBox(
                         width: 110,
-                        child: CardWidget(),
+                        child: CardWidget(
+                          label: '12:00',
+                        icon: Icons.cloud,                
+                        value: '301.54',
+                        ),
                       ),
                       SizedBox(
                         width: 8,
                       ),
-                      SizedBox(width: 110, child: CardWidget()),
+                      SizedBox(width: 110, child: CardWidget(
+                        label: '15:00',
+                        icon: Icons.cloud,                
+                        value: '301.11',
+                      )),
                       SizedBox(
                         width: 10,
                       ),
-                      SizedBox(width: 110, child: CardWidget()),
+                      SizedBox(width: 110, child: CardWidget(
+                        label: '18:00',
+                        icon: Icons.cloud,                
+                        value: '300.79',
+                      )),
                     ],
                   ),
                 ],

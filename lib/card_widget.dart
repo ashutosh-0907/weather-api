@@ -1,8 +1,15 @@
 import 'package:flutter/material.dart';
 
 class CardWidget extends StatelessWidget {
+  final IconData icon;
+  final String label;
+  final String value;
+
   const CardWidget({
     super.key,
+    required this.icon,
+    required this.label,
+    required this.value,
   });
 
   @override
@@ -12,31 +19,31 @@ class CardWidget extends StatelessWidget {
         borderRadius: BorderRadius.circular(16),
       ),
       elevation: 5,
-      child: const Column(
+      child:  Column(
         children: [
           Center(
             child: Padding(
-              padding: EdgeInsets.all(8.0),
+              padding: const EdgeInsets.all(8.0),
               child: Text(
-                '09:00',
-                style: TextStyle(
+                label,
+                style: const TextStyle(
                   fontSize: 20,
                 ),
               ),
             ),
           ),
           Padding(
-            padding: EdgeInsets.all(8.0),
+            padding: const EdgeInsets.all(8.0),
             child: Icon(
-              Icons.cloud,
+              icon,
               size: 40,
             ),
           ),
           Padding(
             padding: EdgeInsets.all(8.0),
             child: Text(
-              '301.17',
-              style: TextStyle(
+              value,
+              style: const TextStyle(
                 fontSize: 20,
               ),
             ),
