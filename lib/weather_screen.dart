@@ -67,43 +67,137 @@ class WeatherScreen extends StatelessWidget {
               height: 20,
             ),
             const Text(
-              'Weathet Forecast',
+              'Weather Forecast',
               style: TextStyle(
                 fontWeight: FontWeight.bold,
                 fontSize: 32,
               ),
             ),
-            const Row(
-              children: [
-                SizedBox(
-                  width: 100,
-                  child: CardWidget(),
-                ),
-                Row(
-                  children: [
-                    SizedBox(
-                      width: 10,
-                    ),
-                    SizedBox(
-                      width: 100,
-                      child: CardWidget(),
-                    ),
-                    SizedBox(
-                      width: 10,
-                    ),
-                    SizedBox(width: 100, child: CardWidget()),
-                    SizedBox(
-                      width: 10,
-                    ),
-                    SizedBox(width: 100, child: CardWidget()),
-                  ],
-                ),
-              ],
+            const SingleChildScrollView(
+              scrollDirection: Axis.horizontal,
+              child: Row(
+                children: [
+                  SizedBox(
+                    width: 100,
+                    child: CardWidget(),
+                  ),
+                  Row(
+                    children: [
+                      SizedBox(
+                        width: 10,
+                      ),
+                      SizedBox(
+                        width: 100,
+                        child: CardWidget(),
+                      ),
+                      SizedBox(
+                        width: 8,
+                      ),
+                      SizedBox(width: 100, child: CardWidget()),
+                      SizedBox(
+                        width: 10,
+                      ),
+                      SizedBox(width: 100, child: CardWidget()),
+                    ],
+                  ),
+                ],
+              ),
             ),
+            const SizedBox(
+              height: 20,
+            ),
+            const Text(
+              'Additional Information',
+              style: TextStyle(
+                fontWeight: FontWeight.bold,
+                fontSize: 32,
+              ),
+            ),
+            const Padding(
+              padding:  EdgeInsets.all(8.0),
+              child: Row(
+                children: [
+                  Column(
+                    children: [
+                      Icon(
+                        Icons.water_drop,
+                        size: 40,
+                        ),
+                      Padding(
+                        padding:  EdgeInsets.all(8.0),
+                        child: Text(
+                          'Humidity',
+                          style: TextStyle(
+                            fontSize: 20,
+                          ),
+                        ),                      
+                      ),
+                      Text(
+                          '94',
+                          style: TextStyle(
+                            fontSize: 20,
+                          ),
+                        ),
+                    ],
+                  ),
+                   Padding(
+                    padding:  EdgeInsets.all(8.0),
+                    child: Column(
+                      children: [
+                        Icon(
+                          Icons.water_drop,
+                          size: 40,
+                          ),
+                        Padding(
+                          padding:  EdgeInsets.all(8.0),
+                          child: Text(
+                            'Wind Speed',
+                            style: TextStyle(
+                              fontSize: 20,
+                            ),
+                          ),                      
+                        ),
+                        Text(
+                            '7.67',
+                            style: TextStyle(
+                              fontSize: 20,
+                            ),
+                          ),
+                      ],
+                    ),
+                  ),
+                   Padding(
+                    padding:  EdgeInsets.only(right: 8),
+                    child: Column(
+                      children: [
+                        Icon(
+                          Icons.water_drop,
+                          size: 40,
+                          ),
+                        Padding(
+                          padding:  EdgeInsets.all(8.0),
+                          child: Text(
+                            'Pressure',
+                            style: TextStyle(
+                              fontSize: 20,
+                            ),
+                          ),                      
+                        ),
+                        Text(
+                            '1006',
+                            style: TextStyle(
+                              fontSize: 20,
+                            ),
+                          ),
+                      ],
+                    ),
+                  ),
+                ],
+              ),
+            )
           ],
         ),
       ),
     );
   }
 }
-
