@@ -83,8 +83,8 @@ class WeatherScreen extends StatelessWidget {
                     width: 110,
                     child: CardWidget(
                       label: '09:00',
-                        icon: Icons.cloud,                
-                        value: '301.17',
+                      icon: Icons.cloud,
+                      value: '301.17',
                     ),
                   ),
                   Row(
@@ -96,26 +96,31 @@ class WeatherScreen extends StatelessWidget {
                         width: 110,
                         child: CardWidget(
                           label: '12:00',
-                        icon: Icons.cloud,                
-                        value: '301.54',
+                          icon: Icons.cloud,
+                          value: '301.54',
                         ),
                       ),
                       SizedBox(
                         width: 8,
                       ),
-                      SizedBox(width: 110, child: CardWidget(
-                        label: '15:00',
-                        icon: Icons.cloud,                
-                        value: '301.11',
-                      )),
+                      SizedBox(
+                          width: 110,
+                          child: CardWidget(
+                            label: '15:00',
+                            icon: Icons.cloud,
+                            value: '301.11',
+                          )),
                       SizedBox(
                         width: 10,
                       ),
-                      SizedBox(width: 110, child: CardWidget(
-                        label: '18:00',
-                        icon: Icons.cloud,                
-                        value: '300.79',
-                      )),
+                      SizedBox(
+                        width: 110,
+                        child: CardWidget(
+                          label: '18:00',
+                          icon: Icons.cloud,
+                          value: '300.79',
+                        ),
+                      ),
                     ],
                   ),
                 ],
@@ -131,24 +136,24 @@ class WeatherScreen extends StatelessWidget {
                 fontSize: 32,
               ),
             ),
-             const Row(
+            const Row(
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: [
-                  AdditionalInfo(
+                AdditionalInfo(
                   icon: Icons.water_drop,
                   label: 'Humidity',
                   value: '94',
-                 ),
-                 AdditionalInfo(
+                ),
+                AdditionalInfo(
                   icon: Icons.air,
                   label: 'Wind Speed',
-                 value: '7.67',
-                 ),
-                 AdditionalInfo(
+                  value: '7.67',
+                ),
+                AdditionalInfo(
                   icon: Icons.beach_access,
                   label: 'Pressure',
                   value: '1006',
-                 ),
+                ),
               ],
             )
           ],
@@ -157,5 +162,3 @@ class WeatherScreen extends StatelessWidget {
     );
   }
 }
-
-
