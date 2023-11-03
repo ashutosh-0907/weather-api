@@ -37,7 +37,7 @@ class WeatherScreen extends StatelessWidget {
                             child: Padding(
                               padding: EdgeInsets.all(8.0),
                               child: Text(
-                                '300.67° K',
+                                '300.67 K',
                                 style: TextStyle(
                                   fontSize: 32,
                                   fontWeight: FontWeight.bold,
