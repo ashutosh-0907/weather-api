@@ -1,15 +1,49 @@
+import 'dart:convert';
 import 'dart:ui';
 import 'package:weather_api/additinl_info.dart';
-
+import 'package:http/http.dart' as http;
 import 'card_widget.dart';
 import 'package:flutter/material.dart';
 
-class WeatherScreen extends StatelessWidget {
+class WeatherScreen extends StatefulWidget {
   const WeatherScreen({super.key});
+
+  @override
+  State<WeatherScreen> createState() => _WeatherScreenState();
+}
+
+class _WeatherScreenState extends State<WeatherScreen> {
+  late double temperature = 50;
+  @override
+  void initState() {
+    super.initState();
+    getCurrentWeather();
+  }
+
+  Future getCurrentWeather() async {
+    print("fn called");
+    try {
+      final result = await http.get(
+        Uri.parse(
+            'https://api.openweathermap.org/data/2.5/forecast?q=Delhi,india&APPID=a0e6306edf9c4018631991f329f05814'),
+      );
+      final data = jsonDecode(result.body);
+      if (data['cod'] != '200') {
+        throw 'An expected error occured';
+      }
+      temperature = data['list'][0]['main']['temp'];
+      print(temperature);
+    } catch (e) {
+      throw e.toString();
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(
+        
+      ),
       body: Padding(
         padding: const EdgeInsets.all(16.0),
         child: Column(
@@ -29,30 +63,30 @@ class WeatherScreen extends StatelessWidget {
                       sigmaX: 10,
                       sigmaY: 10,
                     ),
-                    child: const Padding(
-                      padding: EdgeInsets.all(8.0),
+                    child: Padding(
+                      padding: const EdgeInsets.all(8.0),
                       child: Column(
                         children: [
                           Center(
                             child: Padding(
-                              padding: EdgeInsets.all(8.0),
+                              padding: const EdgeInsets.all(8.0),
                               child: Text(
-                                '300.67 K',
-                                style: TextStyle(
+                                '$temperature K',
+                                style: const TextStyle(
                                   fontSize: 32,
                                   fontWeight: FontWeight.bold,
                                 ),
                               ),
                             ),
                           ),
-                          Padding(
+                          const Padding(
                             padding: EdgeInsets.all(8.0),
                             child: Icon(
                               Icons.cloud,
                               size: 64,
                             ),
                           ),
-                          Text(
+                          const Text(
                             'Rain',
                             style: TextStyle(
                               fontSize: 32,
