@@ -13,7 +13,7 @@ class WeatherScreen extends StatefulWidget {
 }
 
 class _WeatherScreenState extends State<WeatherScreen> {
-  Future getCurrentWeather() async {
+  Future<Map<String,dynamic>> getCurrentWeather() async {
     try {
       final result = await http.get(
         Uri.parse(
@@ -64,6 +64,7 @@ class _WeatherScreenState extends State<WeatherScreen> {
                 snapshot.error.toString(),
               );
             }
+            
             return Padding(
               padding: const EdgeInsets.all(8.0),
               child: Column(
