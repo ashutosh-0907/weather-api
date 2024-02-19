@@ -4,6 +4,7 @@ import 'package:weather_api/additinl_info.dart';
 import 'package:http/http.dart' as http;
 import 'card_widget.dart';
 import 'package:flutter/material.dart';
+import 'secret.dart';
 
 class WeatherScreen extends StatefulWidget {
   const WeatherScreen({super.key});
@@ -13,18 +14,18 @@ class WeatherScreen extends StatefulWidget {
 }
 
 class _WeatherScreenState extends State<WeatherScreen> {
-  Future<Map<String,dynamic>> getCurrentWeather() async {
+  Future<Map<String, dynamic>> getCurrentWeather() async {
     try {
+      String cityName = 'Noida';
       final result = await http.get(
         Uri.parse(
-            'https://api.openweathermap.org/data/2.5/forecast?q=Delhi&APPID=5565ed5da3441dd72edd49b5aa70cae3'),
+            'https://api.openweathermap.org/data/2.5/forecast?q=$cityName&APPID=$weatherApiKey'),
       );
       final data = jsonDecode(result.body);
       if (data['cod'] != '200') {
         throw 'An expected error occured';
       }
       return data;
-      //data['list'][0]['main']['temp'];
     } catch (e) {
       throw e.toString();
     }
@@ -55,7 +56,7 @@ class _WeatherScreenState extends State<WeatherScreen> {
       ),
       body: FutureBuilder(
           future: getCurrentWeather(),
-          builder: (context, snapshot) {          
+          builder: (context, snapshot) {
             if (snapshot.connectionState == ConnectionState.waiting) {
               return const Center(child: RefreshProgressIndicator());
             }
@@ -64,7 +65,14 @@ class _WeatherScreenState extends State<WeatherScreen> {
                 snapshot.error.toString(),
               );
             }
-            
+            final data = snapshot.data!;
+            final weatherData = data['list'][0];
+            final currentTemp = weatherData['main']['temp'];
+            final currentSky = weatherData['weather'][0]['main'];
+            final currentPressure = weatherData['main']['pressure'];
+            final currentHumidity = weatherData['main']['humidity'];
+            final currentWindSpeed = weatherData['wind']['speed'];
+
             return Padding(
               padding: const EdgeInsets.all(8.0),
               child: Column(
@@ -92,7 +100,7 @@ class _WeatherScreenState extends State<WeatherScreen> {
                                   child: Padding(
                                     padding: const EdgeInsets.all(4.0),
                                     child: Text(
-                                      '295 K',
+                                      '$currentTemp K',
                                       style: const TextStyle(
                                         fontSize: 32,
                                         fontWeight: FontWeight.bold,
@@ -100,16 +108,16 @@ class _WeatherScreenState extends State<WeatherScreen> {
                                     ),
                                   ),
                                 ),
-                                const Padding(
-                                  padding: EdgeInsets.all(4.0),
-                                  child: Icon(
-                                    Icons.cloud,
-                                    size: 64,
-                                  ),
+                                const SizedBox(height: 16),
+                                Icon(
+                                  currentSky == 'Clouds' || currentSky == 'Rain'
+                                      ? Icons.cloud
+                                      : Icons.sunny,
+                                  size: 64,
                                 ),
-                                const Text(
-                                  'Rain',
-                                  style: TextStyle(
+                                Text(
+                                  '$currentSky',
+                                  style: const TextStyle(
                                     fontSize: 32,
                                   ),
                                 ),
@@ -191,23 +199,23 @@ class _WeatherScreenState extends State<WeatherScreen> {
                       fontSize: 32,
                     ),
                   ),
-                  const Row(
+                  Row(
                     mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                     children: [
                       AdditionalInfo(
                         icon: Icons.water_drop,
                         label: 'Humidity',
-                        value: '94',
+                        value: '$currentHumidity',
                       ),
                       AdditionalInfo(
                         icon: Icons.air,
                         label: 'Wind Speed',
-                        value: '7.67',
+                        value: currentWindSpeed.toString(),
                       ),
                       AdditionalInfo(
                         icon: Icons.beach_access,
                         label: 'Pressure',
-                        value: '1006',
+                        value: currentPressure.toString(),
                       ),
                     ],
                   )
