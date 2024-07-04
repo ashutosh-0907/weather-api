@@ -92,6 +92,7 @@ class _WeatherScreenState extends State<WeatherScreen> {
                       final currentHumidity = weatherData['main']['humidity'];
                       final currentWindSpeed = weatherData['wind']['speed'];
                       final chanceOfRain = data['list'][0]['pop'] * 100;
+                      final fellsTemp = (weatherData['main']['feels_like']-273.15).toStringAsFixed(2);
 
                       return Expanded(
                         child: SingleChildScrollView(
@@ -250,7 +251,7 @@ class _WeatherScreenState extends State<WeatherScreen> {
                                         child: AdditionalInfo(
                                           icon: Icons.wb_sunny,
                                           label: 'Feels Like ',
-                                          value: chanceOfRain.toString(),
+                                          value: fellsTemp.toString(),
                                         ),
                                       ),
                                     ],
