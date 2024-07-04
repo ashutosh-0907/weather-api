@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:weather_api/weather_screen.dart';
+import 'package:weather_api/screen/city.dart';
+import 'package:weather_api/screen/weather_screen.dart';
 
 
 void main() {
@@ -15,7 +16,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData.dark(useMaterial3: true).copyWith(
         appBarTheme: const AppBarTheme(),
       ),
-      home:const WeatherScreen(),
+      home: const WeatherScreen(),
     );
   }
 }
